@@ -44,10 +44,10 @@ var board = {
 
 function startGame () {
   for (var i = 0; i < board.cells.length; i++) { // loop through each cell on board
-  board.cells[i]["surroundingMines"] = countSurroundingMines(board.cells[i]);
+  board.cells[i]["surroundingMines"] = countSurroundingMines(board.cells[i]); // surroundingMines equal to countSurroundMines function, w/ parathesis of board.cell -> not completely sure / have forgotten why this works?
 
-  document.addEventListener('click', checkForWin);
-  document.addEventListener('contextmenu', checkForWin);
+  document.addEventListener('click', checkForWin); // call check for win function on click
+  document.addEventListener('contextmenu', checkForWin); // call check for win function on right click
 }
   // Don't remove this function call: it makes the game work!
   lib.initBoard()
@@ -60,7 +60,7 @@ function checkForWin () {
     }
   }
   for (var i = 0; i < board.cells.length; i++) { // loop through each cell on board
-     if (board.cells[i].isMine == false && board.cells[i].hidden) { // if cells are not mines, but there are still hidden cells, return to start of funciton?
+     if (board.cells[i].isMine == false && board.cells[i].hidden) { // if exposed cells are not mines but still some hidden cells exist, return to start of funciton?
       return;
     }
 }
