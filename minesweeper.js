@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', startGame)
 
 // Define your `board` object here!
 var board = {
-  cells: [ // 9 x 9 board
+  cells: [ // 6 x 6 board
   {row: 0, col: 0, isMine: true, hidden: true},
   {row: 0, col: 1, isMine: true, hidden: true},
   {row: 0, col: 2, isMine: false, hidden: true},
@@ -17,14 +17,14 @@ var board = {
   {row: 1, col: 5, isMine: false, hidden: true},
   {row: 2, col: 0, isMine: false, hidden: true},
   {row: 2, col: 1, isMine: false, hidden: true},
-  {row: 2, col: 2, isMine: false, hidden: true},
+  {row: 2, col: 2, isMine: true, hidden: true},
   {row: 2, col: 3, isMine: false, hidden: true},
   {row: 2, col: 4, isMine: false, hidden: true},
-  {row: 2, col: 5, isMine: false, hidden: true},
+  {row: 2, col: 5, isMine: true, hidden: true},
   {row: 3, col: 0, isMine: false, hidden: true},
-  {row: 3, col: 1, isMine: false, hidden: true},
+  {row: 3, col: 1, isMine: true, hidden: true},
   {row: 3, col: 2, isMine: false, hidden: true},
-  {row: 3, col: 3, isMine: false, hidden: true},
+  {row: 3, col: 3, isMine: true, hidden: true},
   {row: 3, col: 4, isMine: false, hidden: true},
   {row: 3, col: 5, isMine: false, hidden: true},
   {row: 4, col: 0, isMine: false, hidden: true},
@@ -37,10 +37,21 @@ var board = {
   {row: 5, col: 1, isMine: false, hidden: true},
   {row: 5, col: 2, isMine: true, hidden: true},
   {row: 5, col: 3, isMine: false, hidden: true},
-  {row: 5, col: 4, isMine: false, hidden: true},
+  {row: 5, col: 4, isMine: true, hidden: true},
   {row: 5, col: 5, isMine: false, hidden: true}
 ]
 };
+
+
+/*function generateBoard () {
+  var board {
+    cells: [
+
+  ]
+  }
+}
+*/
+
 
 function startGame () {
   for (var i = 0; i < board.cells.length; i++) { // loop through each cell on board
@@ -60,7 +71,7 @@ function checkForWin () {
     }
   }
   for (var i = 0; i < board.cells.length; i++) { // loop through each cell on board
-     if (board.cells[i].isMine == false && board.cells[i].hidden) { // if exposed cells are not mines but still some hidden cells exist, return to start of funciton?
+     if (board.cells[i].isMine == false && board.cells[i].hidden) { // if exposed cells are not mines but still some hidden cells exist, return to start of function?
       return;
     }
 }
@@ -69,7 +80,7 @@ function checkForWin () {
 }
 
 // Define this function to count the number of mines around the cell
-// (there could be as many as 8). You don't have to get the surrounding
+// (there could be as many as 8). You don't have to get the surroundingo
 // cells yourself! Just use `lib.getSurroundingCells`:
 //
 //
