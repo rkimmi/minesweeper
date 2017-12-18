@@ -22,14 +22,17 @@ function generateBoard () {
 
 
 function startGame () {
+  var boardDiv = document.getElementsByClassName("board")[0]; // access boardDiv, specify first div
+  boardDiv.innerHTML = '';
+  debugger;
   board = generateBoard ();
   for (var i = 0; i < board.cells.length; i++) { // loop through each cell on board
-  board.cells[i]["surroundingMines"] = countSurroundingMines(board.cells[i]); // surroundingMines equal to countSurroundMines function, w/ parathesis of board.cell -> not completely sure / have forgotten why this works?
+  board.cells[i].surroundingMines = countSurroundingMines(board.cells[i]); // surroundingMines equal to countSurroundMines function, w/ parathesis of board.cell -> not completely sure / have forgotten why this works?
 
   document.addEventListener('click', checkForWin); // call check for win function on click
   document.addEventListener('contextmenu', checkForWin); // call check for win function on right click
-  var sndMarina = new Audio("./sounds/animefilmscore.wav");
-  sndMarina.play();
+  //var sndMarina = new Audio("./sounds/animefilmscore.wav");
+  //sndMarina.play();
 }
   // Don't remove this function call: it makes the game work!
   lib.initBoard()
@@ -52,7 +55,7 @@ function checkForWin () { // check conditions for win
 }
 
 function playAgain () {
-  if (confirm("do you want to play again?")) { // ask user if they want to play again
+  if (confirm("do you want to play again? hello")) { // ask user if they want to play again
    startGame(); // if wants to play again, run function startGame
   }
 }
